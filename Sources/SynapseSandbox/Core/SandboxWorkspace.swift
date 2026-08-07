@@ -171,7 +171,7 @@ public struct SandboxWorkspace: Identifiable, Sendable, Codable, Hashable, Equat
         <body>
             <div class="card">
                 <h1>\(name)</h1>
-                <p>Rendered securely inside SwiftSandboxKit with zero external server dependencies.</p>
+                <p>Rendered securely inside SynapseSandbox with zero external server dependencies.</p>
                 <button id="actionBtn" onclick="handleNativeBridgeAction()">Invoke AI Agent Tool</button>
             </div>
             <script>

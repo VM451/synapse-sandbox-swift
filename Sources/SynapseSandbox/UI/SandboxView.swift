@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// Multi-platform SwiftUI view that renders the embedded Web Sandbox and wires it to platform features.
-public struct SandboxView: View {
+public struct SynapseSandboxView: View {
     @StateObject private var controller: SandboxViewController
     private let configuration: SandboxConfiguration
     
@@ -64,3 +64,6 @@ public struct SandboxView: View {
         }
     }
 }
+
+/// Convenience typealias for `SynapseSandboxView`.
+public typealias SandboxView = SynapseSandboxView

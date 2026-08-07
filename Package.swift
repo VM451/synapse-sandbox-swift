@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "SwiftSandboxKit",
+    name: "SynapseSandbox",
     platforms: [
         .iOS("27.0"),
         .macOS("27.0"),
@@ -12,25 +12,25 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "SwiftSandboxKit",
-            targets: ["SwiftSandboxKit"]
+            name: "SynapseSandbox",
+            targets: ["SynapseSandbox"]
         ),
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "SwiftSandboxKit",
+            name: "SynapseSandbox",
             dependencies: [],
-            path: "Sources/SwiftSandboxKit",
+            path: "Sources/SynapseSandbox",
             swiftSettings: [
                 .enableUpcomingFeature("StrictConcurrency"),
                 .swiftLanguageMode(.v6)
             ]
         ),
         .testTarget(
-            name: "SwiftSandboxKitTests",
-            dependencies: ["SwiftSandboxKit"],
-            path: "Tests/SwiftSandboxKitTests",
+            name: "SynapseSandboxTests",
+            dependencies: ["SynapseSandbox"],
+            path: "Tests/SynapseSandboxTests",
             swiftSettings: [
                 .enableUpcomingFeature("StrictConcurrency"),
                 .swiftLanguageMode(.v6)

@@ -1,4 +1,4 @@
-# SwiftSandboxKit (Project Hyperion)
+# SynapseSandbox (Project Hyperion)
 
 <p align="center">
   <strong>Enterprise-Grade, Privacy-First Embedded Web Sandbox & AI Agent Framework for Apple Platforms</strong><br>
@@ -25,7 +25,7 @@
 - [5. Installation via Swift Package Manager](#5-installation-via-swift-package-manager)
 - [6. Architecture & System Topology](#6-architecture--system-topology)
 - [7. Complete Developer Integration Guide](#7-complete-developer-integration-guide)
-  - [Guide 1: Declarative SwiftUI Sandbox (`SandboxView`)](#guide-1-declarative-swiftui-sandbox-sandboxview)
+  - [Guide 1: Declarative SwiftUI Sandbox (`SynapseSandboxView`)](#guide-1-declarative-swiftui-sandbox-synapsesandboxview)
   - [Guide 2: AI Agent & Local LLM Integration (`AgenticBridge`)](#guide-2-ai-agent--local-llm-integration-agenticbridge)
   - [Guide 3: Native Tool Calling Protocol & JSON Schema RPC](#guide-3-native-tool-calling-protocol--json-schema-rpc)
   - [Guide 4: Semantic DOM Extraction & Token Pruning](#guide-4-semantic-dom-extraction--token-pruning)
@@ -43,7 +43,7 @@
 
 ## 1. Executive Summary & Vision
 
-**SwiftSandboxKit** (Internal Code Name: *Project Hyperion*) is a production-grade, privacy-first Swift framework designed to enable Apple ecosystem applications (iOS 27+, iPadOS 27+, macOS 27+, and visionOS 27+) to safely render, execute, and inspect local mini web applications (HTML5, JS, CSS, WebAssembly, WebGPU/WebGL) with **zero external server dependencies**.
+**SynapseSandbox** (Internal Code Name: *Project Hyperion*) is a production-grade, privacy-first Swift framework designed to enable Apple ecosystem applications (iOS 27+, iPadOS 27+, macOS 27+, and visionOS 27+) to safely render, execute, and inspect local mini web applications (HTML5, JS, CSS, WebAssembly, WebGPU/WebGL) with **zero external server dependencies**.
 
 The framework bridges the gap between client-side code execution, Apple's native Foundation Model Agentic Frameworks (Apple Intelligence, Local LLMs, On-Device Transformers), and seamless multi-device state synchronization powered by Apple CloudKit Private Databases.
 
@@ -51,9 +51,9 @@ The framework bridges the gap between client-side code execution, Apple's native
 
 ## 2. Competitor & Alternative Comparison
 
-How does **SwiftSandboxKit** compare against alternative sandboxing and web runtime approaches?
+How does **SynapseSandbox** compare against alternative sandboxing and web runtime approaches?
 
-| Feature / Architectural Capability | **SwiftSandboxKit (Project Hyperion)** | **E2B Sandboxes (Cloud MicroVMs)** | **JavaScriptCore (Native Engine)** | **Raw Standard WKWebView** | **Docker / Local MicroVMs** |
+| Feature / Architectural Capability | **SynapseSandbox (Project Hyperion)** | **E2B Sandboxes (Cloud MicroVMs)** | **JavaScriptCore (Native Engine)** | **Raw Standard WKWebView** | **Docker / Local MicroVMs** |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **Zero External Cloud Dependency** | ✅ **100% On-Device** | ❌ Requires Cloud Backend | ✅ Local Engine | ✅ Local Engine | ❌ Heavy Host Daemon |
 | **Apple Silicon Hardware Acceleration** | ✅ **Native WebGPU / Metal** | ❌ Remote Virtualized CPU | ❌ No WebGL/WebGPU | ✅ WebGL / Metal | ⚠️ Emulated / Limited |
@@ -62,7 +62,7 @@ How does **SwiftSandboxKit** compare against alternative sandboxing and web runt
 | **Bidirectional Agent Tool Calling RPC** | ✅ **Type-Safe Swift RPC** | ⚠️ Custom WebSocket | ⚠️ Primitive JSValue | ❌ Fragile Message Port | ⚠️ Custom gRPC/TCP |
 | **Private iCloud CRDT Delta Sync** | ✅ **Built-in CloudKit** | ❌ Requires Cloud DB | ❌ None | ❌ None | ❌ None |
 | **In-Memory Scheme Isolation (`sandbox://`)** | ✅ **Zero Disk File Leaks** | ❌ Container Disk Image | ❌ N/A | ⚠️ Raw `file://` Risks | ❌ Full Filesystem |
-| **Native SwiftUI Component (`SandboxView`)** | ✅ **Multiplatform SwiftUI** | ❌ Web-only Client | ❌ No View Layer | ⚠️ AppKit/UIKit Bridge | ❌ No GUI Wrapper |
+| **Native SwiftUI Component (`SynapseSandboxView`)** | ✅ **Multiplatform SwiftUI** | ❌ Web-only Client | ❌ No View Layer | ⚠️ AppKit/UIKit Bridge | ❌ No GUI Wrapper |
 | **visionOS Spatial Canvas & Glass UX** | ✅ **Glass & Hover Effects** | ❌ None | ❌ None | ⚠️ Flat Window Only | ❌ None |
 | **Live Hot Reload & Subtree DOM Patching** | ✅ **Sub-millisecond Patch** | ❌ Process Restart | ❌ Context Re-eval | ⚠️ Page Reload | ❌ Container Rebuild |
 | **Strict Memory Watchdog (Max 256MB)** | ✅ **Automated Watchdog** | ⚠️ Billed RAM Quota | ❌ Can Crash Host | ❌ Out-of-Memory Crash | ⚠️ Host OS Killer |
@@ -91,6 +91,8 @@ How does **SwiftSandboxKit** compare against alternative sandboxing and web runt
 | **iPadOS** | **iPadOS 27.0+** | ✅ | Full Engine, WebAssembly, Multi-Window, Apple Pencil, CloudKit Sync |
 | **macOS** | **macOS 27.0+** | ✅ | Multi-Instance Sandboxing, WebGPU, Safari Web Inspector, CLI Tools |
 | **visionOS** | **visionOS 27.0+** | ✅ | Spatial Canvas UI, Volumetric Glass Background, 3D Hover Effects |
+| **watchOS** | **watchOS 27.0+** | ✅ | Lightweight State Viewer & CloudKit Trigger (No WebKit Rendering) |
+| **tvOS** | **tvOS 27.0+** | ✅ | Full Sandbox Engine & Native View Presentation |
 
 - **Swift Language**: Swift 6.0+ with Strict Concurrency (`-swift-version 6`, `.enableUpcomingFeature("StrictConcurrency")`).
 - **Dependencies**: **Zero 3rd-party dependencies**. Built exclusively on Apple Native Frameworks (`WebKit`, `CloudKit`, `SwiftUI`, `Combine`, `CryptoKit`, `Foundation`).
@@ -99,7 +101,7 @@ How does **SwiftSandboxKit** compare against alternative sandboxing and web runt
 
 ## 5. Installation via Swift Package Manager
 
-Add `SwiftSandboxKit` to your `Package.swift` manifest or via Xcode Package Dependencies:
+Add `SynapseSandbox` to your `Package.swift` manifest or via Xcode Package Dependencies:
 
 ```swift
 // swift-tools-version: 6.0
@@ -113,13 +115,13 @@ let package = Package(
         .visionOS("27.0")
     ],
     dependencies: [
-        .package(url: "https://github.com/VM451/e2b-swift.git", from: "1.0.0")
+        .package(url: "https://github.com/VM451/synapse-sandbox-swift.git", from: "1.0.0")
     ],
     targets: [
         .target(
             name: "MyAIApp",
             dependencies: [
-                .product(name: "SwiftSandboxKit", package: "e2b-swift")
+                .product(name: "SynapseSandbox", package: "synapse-sandbox-swift")
             ],
             swiftSettings: [
                 .enableUpcomingFeature("StrictConcurrency"),
@@ -141,7 +143,7 @@ let package = Package(
 |  |                           SwiftUI / AppKit / UIKit                          |  |
 |  +-----------------------------------------------------------------------------+  |
 |                                         |                                         |
-|                                SwiftSandboxKit API                                |
+|                                 SynapseSandbox API                                |
 |  +-----------------------+-----------------------+-----------------------------+  |
 |  |    Sandbox Engine     |     Agent Bridge      |     CloudKit Sync Engine    |  |
 |  | (WebKit/JSContext/WASM)| (DOM/Tool Calling/AST)|  (CRDT / Private Database)  |  |
@@ -158,36 +160,26 @@ let package = Package(
 
 ## 7. Complete Developer Integration Guide
 
-### Guide 1: Declarative SwiftUI Sandbox (`SandboxView`)
+### Guide 1: Declarative SwiftUI Sandbox (`SynapseSandboxView`)
 
 Embed a sandboxed mini web application into any SwiftUI view hierarchy:
 
 ```swift
 import SwiftUI
-import SwiftSandboxKit
+import SynapseSandbox
 
 struct CanvasView: View {
     @State private var workspace = SandboxWorkspace.defaultTemplate(name: "Interactive AI Canvas")
     
     var body: some View {
-        SandboxView(
+        SynapseSandboxView(
             workspace: workspace,
-            configuration: .developer // Enables Safari Web Inspector & Developer Overlay
-        )
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea(.keyboard)
-    }
-}
-```
-
----
-
-### Guide 2: AI Agent & Local LLM Integration (`AgenticBridge`)
+           ### Guide 2: AI Agent & Local LLM Integration (`AgenticBridge`)
 
 Connect an on-device LLM (Apple Intelligence, MLX, CoreML Transformer, or Ollama) directly to the live Sandbox runtime:
 
 ```swift
-import SwiftSandboxKit
+import SynapseSandbox
 
 // 1. Initialize Engine & Agent Bridge
 let engine = SandboxEngine(workspace: workspace)
@@ -226,7 +218,7 @@ if patchResult.isSuccess {
 Expose native Swift functions as tools that can be invoked either by the JavaScript sandbox app or by the AI Agent:
 
 ```swift
-import SwiftSandboxKit
+import SynapseSandbox
 
 // 1. Create a native tool
 let batteryTool = ClosureAgentTool(
@@ -275,7 +267,7 @@ window.SwiftSandboxBridge.postMessage({
 Foundation Models have bounded context windows. `SemanticDOMExtractor` strips non-semantic tokens (`<script>`, `<style>`, `<svg>`, whitespace) while preserving layout semantics, ARIA labels, interactive elements, and IDs:
 
 ```swift
-import SwiftSandboxKit
+import SynapseSandbox
 
 // Extract Markdown hierarchy (e.g. 500-1500 tokens instead of 20,000 raw HTML tokens)
 let markdown = try await bridge.captureSemanticDOM(maxTokens: 2048)
@@ -314,7 +306,7 @@ _ = try await engine.applyDOMPatch(
 Synchronize workspaces seamlessly across Mac, iPad, iPhone, and Apple Vision Pro using the user's private iCloud database:
 
 ```swift
-import SwiftSandboxKit
+import SynapseSandbox
 
 let syncEngine = CloudKitSyncEngine(containerIdentifier: "iCloud.com.mycompany.myapp")
 
@@ -338,7 +330,7 @@ Run high-performance WebAssembly compute routines (e.g. image filters, local SQL
 
 ```swift
 import Foundation
-import SwiftSandboxKit
+import SynapseSandbox
 
 // Load wasm bytes
 let wasmFile = SandboxFile(
@@ -360,7 +352,7 @@ let config = SandboxConfiguration(
 
 ### Guide 8: Zero-Trust Security Perimeter & CSP Customization
 
-SwiftSandboxKit enforces a zero-trust model by default:
+SynapseSandbox enforces a zero-trust model by default:
 
 ```swift
 // 1. Highly restricted banking/privacy sandbox
@@ -380,11 +372,11 @@ let customConfig = SandboxConfiguration(
 ### Guide 9: Platform-Specific UX (visionOS Spatial Canvas & macOS Web Inspector)
 
 #### visionOS Spatial Enhancements
-When running on visionOS, `SandboxView` automatically configures `.glassBackgroundEffect()` and `.hoverEffect()`:
+When running on visionOS, `SynapseSandboxView` automatically configures `.glassBackgroundEffect()` and `.hoverEffect()`:
 
 ```swift
 #if os(visionOS)
-SandboxView(workspace: workspace)
+SynapseSandboxView(workspace: workspace)
     .glassBackgroundEffect()
 #endif
 ```
@@ -408,7 +400,7 @@ let config = SandboxConfiguration(
 |                                HOST APPLICATION                                 |
 |                                                                                 |
 |   +-------------------------------------------------------------------------+   |
-|   |                       SwiftSandboxKit (Host Process)                    |   |
+|   |                        SynapseSandbox (Host Process)                    |   |
 |   +-------------------------------------------------------------------------+   |
 |                                        |                                        |
 |                          SECURE IPC / CUSTOM SCHEME                             |
@@ -457,7 +449,7 @@ let config = SandboxConfiguration(
 - `public enum SemanticDOMExtractor: Sendable`
 
 ### SwiftUI Components
-- `public struct SandboxView: View`
+- `public struct SynapseSandboxView: View` (typealias: `public typealias SandboxView = SynapseSandboxView`)
 - `public final class SandboxViewController: ObservableObject`
 - `public struct SandboxDeveloperOverlay: View`
 
@@ -480,4 +472,5 @@ Measured on Apple Silicon (M1 / M2 / M3 / M4 and A15+ chips):
 
 ## 11. License
 
-SwiftSandboxKit is open-sourced software licensed under the [MIT License](LICENSE).
+SynapseSandbox is open-sourced software licensed under the [MIT License](LICENSE).
+

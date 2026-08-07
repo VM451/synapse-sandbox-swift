@@ -1,6 +1,6 @@
 import Testing
 import Foundation
-@testable import SwiftSandboxKit
+@testable import SynapseSandbox
 
 @Suite("AI Agentic Bridge & Tool Calling Tests")
 struct AgenticBridgeTests {

@@ -15,7 +15,7 @@ public actor CloudKitSyncEngine {
     private var changeToken: Any? // CKServerChangeToken on platforms with CloudKit
     private var cachedWorkspaces: [UUID: SandboxWorkspace] = [:]
     
-    public init(containerIdentifier: String = "iCloud.com.swiftsandboxkit.sandbox") {
+    public init(containerIdentifier: String = "iCloud.com.synapsesandbox.sandbox") {
         #if canImport(CloudKit)
         self.container = CKContainer(identifier: containerIdentifier)
         self.database = container.privateCloudDatabase

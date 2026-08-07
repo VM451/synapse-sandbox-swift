@@ -1,6 +1,6 @@
 import Testing
 import Foundation
-@testable import SwiftSandboxKit
+@testable import SynapseSandbox
 
 @Suite("Sandbox Engine Actor & Event Stream Tests")
 struct SandboxEngineTests {

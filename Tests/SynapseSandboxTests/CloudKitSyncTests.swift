@@ -1,6 +1,6 @@
 import Testing
 import Foundation
-@testable import SwiftSandboxKit
+@testable import SynapseSandbox
 
 @Suite("Offline Queue & CloudKit Persistence Tests")
 struct CloudKitSyncTests {

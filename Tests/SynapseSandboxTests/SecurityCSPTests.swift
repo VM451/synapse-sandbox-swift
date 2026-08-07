@@ -1,6 +1,6 @@
 import Testing
 import Foundation
-@testable import SwiftSandboxKit
+@testable import SynapseSandbox
 
 @Suite("Security & Content Security Policy (CSP) Tests")
 struct SecurityCSPTests {
