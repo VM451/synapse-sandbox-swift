@@ -3,7 +3,7 @@ import SwiftUI
 import WebKit
 #endif
 
-#if os(iOS) || os(visionOS) || os(tvOS)
+#if os(iOS) || os(visionOS)
 #if canImport(WebKit)
 public struct NativeSandboxRepresentable: UIViewRepresentable {
     @ObservedObject var controller: SandboxViewController
@@ -169,27 +169,4 @@ public struct NativeSandboxRepresentable: NSViewRepresentable {
     }
 }
 #endif
-
-#elseif os(watchOS)
-public struct NativeSandboxRepresentable: View {
-    @ObservedObject var controller: SandboxViewController
-    
-    public init(controller: SandboxViewController) {
-        self.controller = controller
-    }
-    
-    public var body: some View {
-        VStack(spacing: 8) {
-            Image(systemName: "cube.transparent")
-                .font(.title2)
-                .foregroundColor(.accentColor)
-            Text(controller.workspace.name)
-                .font(.headline)
-            Text("Sandbox State Synchronized")
-                .font(.caption2)
-                .foregroundColor(.secondary)
-        }
-        .padding()
-    }
-}
 #endif

@@ -12,9 +12,6 @@ public struct SandboxView: View {
     
     public var body: some View {
         ZStack(alignment: .bottom) {
-            #if os(watchOS)
-            NativeSandboxRepresentable(controller: controller)
-            #else
             #if canImport(WebKit)
             NativeSandboxRepresentable(controller: controller)
                 .clipShape(RoundedRectangle(cornerRadius: configuration.cornerRadius, style: .continuous))
@@ -24,7 +21,6 @@ public struct SandboxView: View {
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
-            #endif
             #endif
             
             if controller.isLoading {

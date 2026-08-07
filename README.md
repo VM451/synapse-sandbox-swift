@@ -7,7 +7,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Swift-6.0%2B-FA7343.svg?style=flat&logo=swift" alt="Swift 6.0+" />
-  <img src="https://img.shields.io/badge/Platforms-iOS%2027%20%7C%20iPadOS%2027%20%7C%20macOS%2027%20%7C%20visionOS%2027%20%7C%20tvOS%2027%20%7C%20watchOS%2027-1D1D1F.svg?style=flat&logo=apple" alt="Platforms" />
+  <img src="https://img.shields.io/badge/Platforms-iOS%2027%20%7C%20iPadOS%2027%20%7C%20macOS%2027%20%7C%20visionOS%2027-1D1D1F.svg?style=flat&logo=apple" alt="Platforms" />
   <img src="https://img.shields.io/badge/Foundation%20Models-Apple%20Intelligence%20Ready-5856D6.svg?style=flat" alt="Foundation Models" />
   <img src="https://img.shields.io/badge/Concurrency-Strict%20Complete-34C759.svg?style=flat" alt="Strict Concurrency" />
   <img src="https://img.shields.io/badge/Dependencies-Zero%20(100%25%20Apple%20Native)-007AFF.svg?style=flat" alt="Zero Dependencies" />
@@ -43,7 +43,7 @@
 
 ## 1. Executive Summary & Vision
 
-**SwiftSandboxKit** (Internal Code Name: *Project Hyperion*) is a production-grade, privacy-first Swift framework designed to enable Apple ecosystem applications (iOS 27+, iPadOS 27+, macOS 27+, visionOS 27+, tvOS 27+, and watchOS 27+) to safely render, execute, and inspect local mini web applications (HTML5, JS, CSS, WebAssembly, WebGPU/WebGL) with **zero external server dependencies**.
+**SwiftSandboxKit** (Internal Code Name: *Project Hyperion*) is a production-grade, privacy-first Swift framework designed to enable Apple ecosystem applications (iOS 27+, iPadOS 27+, macOS 27+, and visionOS 27+) to safely render, execute, and inspect local mini web applications (HTML5, JS, CSS, WebAssembly, WebGPU/WebGL) with **zero external server dependencies**.
 
 The framework bridges the gap between client-side code execution, Apple's native Foundation Model Agentic Frameworks (Apple Intelligence, Local LLMs, On-Device Transformers), and seamless multi-device state synchronization powered by Apple CloudKit Private Databases.
 
@@ -91,8 +91,6 @@ How does **SwiftSandboxKit** compare against alternative sandboxing and web runt
 | **iPadOS** | **iPadOS 27.0+** | ✅ | Full Engine, WebAssembly, Multi-Window, Apple Pencil, CloudKit Sync |
 | **macOS** | **macOS 27.0+** | ✅ | Multi-Instance Sandboxing, WebGPU, Safari Web Inspector, CLI Tools |
 | **visionOS** | **visionOS 27.0+** | ✅ | Spatial Canvas UI, Volumetric Glass Background, 3D Hover Effects |
-| **watchOS** | **watchOS 27.0+** | ✅ | Lightweight State Viewer & CloudKit Trigger (No WebKit Rendering) |
-| **tvOS** | **tvOS 27.0+** | ✅ | Full Sandbox Engine & Native View Presentation |
 
 - **Swift Language**: Swift 6.0+ with Strict Concurrency (`-swift-version 6`, `.enableUpcomingFeature("StrictConcurrency")`).
 - **Dependencies**: **Zero 3rd-party dependencies**. Built exclusively on Apple Native Frameworks (`WebKit`, `CloudKit`, `SwiftUI`, `Combine`, `CryptoKit`, `Foundation`).
@@ -112,9 +110,7 @@ let package = Package(
     platforms: [
         .iOS("27.0"),
         .macOS("27.0"),
-        .visionOS("27.0"),
-        .tvOS("27.0"),
-        .watchOS("27.0")
+        .visionOS("27.0")
     ],
     dependencies: [
         .package(url: "https://github.com/VM451/e2b-swift.git", from: "1.0.0")
