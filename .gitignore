@@ -1,0 +1,27 @@
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Context & Agentic Protocol Files
+context/
+AGENTS.md
+
+# macOS System & Metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Xcode & Project Artefacts
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+*.xcuserdata/
+DerivedData/
+*.xcuserstate
+
+# Swift Testing & Artifacts
+.swift-testing/
