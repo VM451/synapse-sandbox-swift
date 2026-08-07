@@ -86,11 +86,11 @@ How does **SwiftSandboxKit** compare against alternative sandboxing and web runt
 
 | Platform | Minimum OS Version | Recommended | Features Supported |
 | :--- | :--- | :--- | :--- |
-| **iOS / iPadOS** | iOS 18.0+ | iOS 18.2+ | Full Engine, WebAssembly, CloudKit Sync, Agent Bridge |
-| **macOS** | macOS 15.0 (Sequoia)+ | macOS 15.2+ | Multi-Instance Sandboxing, WebGPU, Safari Web Inspector, CLI Tools |
-| **visionOS** | visionOS 2.0+ | visionOS 2.2+ | Spatial Canvas UI, Glass Background, Hover Effects |
-| **watchOS** | watchOS 11.0+ | watchOS 11.0+ | Lightweight State Viewer & CloudKit Trigger (No WebKit Rendering) |
-| **tvOS** | tvOS 18.0+ | tvOS 18.2+ | Full Sandbox Engine & Native View |
+| **iOS / iPadOS** | iOS 27.0+ | iOS 27.0+ | Full Engine, WebAssembly, CloudKit Sync, Agent Bridge |
+| **macOS** | macOS 27.0+ | macOS 27.0+ | Multi-Instance Sandboxing, WebGPU, Safari Web Inspector, CLI Tools |
+| **visionOS** | visionOS 27.0+ | visionOS 27.0+ | Spatial Canvas UI, Glass Background, Hover Effects |
+| **watchOS** | watchOS 27.0+ | watchOS 27.0+ | Lightweight State Viewer & CloudKit Trigger (No WebKit Rendering) |
+| **tvOS** | tvOS 27.0+ | tvOS 27.0+ | Full Sandbox Engine & Native View |
 
 - **Swift Language**: Swift 6.0+ with Strict Concurrency (`-swift-version 6`, `.enableUpcomingFeature("StrictConcurrency")`).
 - **Dependencies**: **Zero 3rd-party dependencies**. Built exclusively on Apple Native Frameworks (`WebKit`, `CloudKit`, `SwiftUI`, `Combine`, `CryptoKit`, `Foundation`).
@@ -108,11 +108,11 @@ import PackageDescription
 let package = Package(
     name: "MyAIApp",
     platforms: [
-        .iOS(.v18),
-        .macOS(.v15),
-        .visionOS(.v2),
-        .tvOS(.v18),
-        .watchOS(.v11)
+        .iOS("27.0"),
+        .macOS("27.0"),
+        .visionOS("27.0"),
+        .tvOS("27.0"),
+        .watchOS("27.0")
     ],
     dependencies: [
         .package(url: "https://github.com/VM451/e2b-swift.git", from: "1.0.0")

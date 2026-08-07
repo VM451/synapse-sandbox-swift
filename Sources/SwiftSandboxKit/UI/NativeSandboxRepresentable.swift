@@ -31,10 +31,7 @@ public struct NativeSandboxRepresentable: UIViewRepresentable {
         let webView = WKWebView(frame: .zero, configuration: configuration)
         webView.isOpaque = false
         webView.backgroundColor = .clear
-        
-        if #available(iOS 16.4, visionOS 1.0, tvOS 16.4, *) {
-            webView.isInspectable = controller.configuration.isInspectable
-        }
+        webView.isInspectable = controller.configuration.isInspectable
         
         controller.webView = webView
         
@@ -117,10 +114,7 @@ public struct NativeSandboxRepresentable: NSViewRepresentable {
         
         let webView = WKWebView(frame: .zero, configuration: configuration)
         webView.setValue(false, forKey: "drawsBackground")
-        
-        if #available(macOS 13.3, *) {
-            webView.isInspectable = controller.configuration.isInspectable
-        }
+        webView.isInspectable = controller.configuration.isInspectable
         
         controller.webView = webView
         

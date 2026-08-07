@@ -6,11 +6,11 @@ import PackageDescription
 let package = Package(
     name: "SwiftSandboxKit",
     platforms: [
-        .iOS(.v18),
-        .macOS(.v15),
-        .visionOS(.v2),
-        .tvOS(.v18),
-        .watchOS(.v11)
+        .iOS("27.0"),
+        .macOS("27.0"),
+        .visionOS("27.0"),
+        .tvOS("27.0"),
+        .watchOS("27.0")
     ],
     products: [
         .library(
