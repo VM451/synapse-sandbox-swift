@@ -7,7 +7,8 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Swift-6.0%2B-FA7343.svg?style=flat&logo=swift" alt="Swift 6.0+" />
-  <img src="https://img.shields.io/badge/Platforms-iOS%20%7C%20macOS%20%7C%20visionOS%20%7C%20tvOS%20%7C%20watchOS-1D1D1F.svg?style=flat&logo=apple" alt="Platforms" />
+  <img src="https://img.shields.io/badge/Platforms-iOS%2027%20%7C%20iPadOS%2027%20%7C%20macOS%2027%20%7C%20visionOS%2027%20%7C%20tvOS%2027%20%7C%20watchOS%2027-1D1D1F.svg?style=flat&logo=apple" alt="Platforms" />
+  <img src="https://img.shields.io/badge/Foundation%20Models-Apple%20Intelligence%20Ready-5856D6.svg?style=flat" alt="Foundation Models" />
   <img src="https://img.shields.io/badge/Concurrency-Strict%20Complete-34C759.svg?style=flat" alt="Strict Concurrency" />
   <img src="https://img.shields.io/badge/Dependencies-Zero%20(100%25%20Apple%20Native)-007AFF.svg?style=flat" alt="Zero Dependencies" />
   <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat" alt="License" />
@@ -42,7 +43,7 @@
 
 ## 1. Executive Summary & Vision
 
-**SwiftSandboxKit** (Internal Code Name: *Project Hyperion*) is a production-grade, privacy-first Swift framework designed to enable Apple ecosystem applications (iOS, iPadOS, macOS, visionOS, tvOS, and watchOS) to safely render, execute, and inspect local mini web applications (HTML5, JS, CSS, WebAssembly, WebGPU/WebGL) with **zero external server dependencies**.
+**SwiftSandboxKit** (Internal Code Name: *Project Hyperion*) is a production-grade, privacy-first Swift framework designed to enable Apple ecosystem applications (iOS 27+, iPadOS 27+, macOS 27+, visionOS 27+, tvOS 27+, and watchOS 27+) to safely render, execute, and inspect local mini web applications (HTML5, JS, CSS, WebAssembly, WebGPU/WebGL) with **zero external server dependencies**.
 
 The framework bridges the gap between client-side code execution, Apple's native Foundation Model Agentic Frameworks (Apple Intelligence, Local LLMs, On-Device Transformers), and seamless multi-device state synchronization powered by Apple CloudKit Private Databases.
 
@@ -77,20 +78,21 @@ How does **SwiftSandboxKit** compare against alternative sandboxing and web runt
 1. **Local-First & Offline Architecture**: Zero reliance on remote servers. All web assets, JS execution contexts, WebAssembly modules, and storage reside securely on the local Apple device.
 2. **First-Class AI Agentic System Integration**: Native Swift protocols exposing JS AST manipulation, semantic DOM inspection, tool calling, and live event streams directly to local AI agents (Apple Foundation Models, Swift Agent Frameworks, On-Device Transformers).
 3. **CloudKit Private Sync Engine**: Out-of-the-box CRDT-based cross-device sync utilizing the user's private iCloud quota, requiring zero developer backend infrastructure.
-4. **Platform-Native Spatial & Desktop UX**: Native SwiftUI primitives with deep platform adaptations (e.g., spatial windows and 3D volume attachments in visionOS, desktop multi-windowing & Safari Web Inspector in macOS, fluid gestures in iOS).
+4. **Platform-Native Spatial & Desktop UX**: Native SwiftUI primitives with deep platform adaptations (e.g., spatial windows and 3D volume attachments in visionOS 27+, desktop multi-windowing & Safari Web Inspector in macOS 27+, fluid gestures in iOS 27+ / iPadOS 27+).
 5. **Zero-Trust Security Perimeter**: Strict process isolation, Content Security Policy (CSP) enforcement, memory bounds (watchdog limit 256MB), and filtered IPC message bridges.
 
 ---
 
 ## 4. Platform Compatibility & Requirements
 
-| Platform | Minimum OS Version | Recommended | Features Supported |
-| :--- | :--- | :--- | :--- |
-| **iOS / iPadOS** | iOS 27.0+ | iOS 27.0+ | Full Engine, WebAssembly, CloudKit Sync, Agent Bridge |
-| **macOS** | macOS 27.0+ | macOS 27.0+ | Multi-Instance Sandboxing, WebGPU, Safari Web Inspector, CLI Tools |
-| **visionOS** | visionOS 27.0+ | visionOS 27.0+ | Spatial Canvas UI, Glass Background, Hover Effects |
-| **watchOS** | watchOS 27.0+ | watchOS 27.0+ | Lightweight State Viewer & CloudKit Trigger (No WebKit Rendering) |
-| **tvOS** | tvOS 27.0+ | tvOS 27.0+ | Full Sandbox Engine & Native View |
+| Platform | Minimum OS Version | Apple Foundation Models Supported | Features Supported |
+| :--- | :--- | :---: | :--- |
+| **iOS** | **iOS 27.0+** | ✅ | Full Engine, WebAssembly, CloudKit Sync, Agent Bridge |
+| **iPadOS** | **iPadOS 27.0+** | ✅ | Full Engine, WebAssembly, Multi-Window, Apple Pencil, CloudKit Sync |
+| **macOS** | **macOS 27.0+** | ✅ | Multi-Instance Sandboxing, WebGPU, Safari Web Inspector, CLI Tools |
+| **visionOS** | **visionOS 27.0+** | ✅ | Spatial Canvas UI, Volumetric Glass Background, 3D Hover Effects |
+| **watchOS** | **watchOS 27.0+** | ✅ | Lightweight State Viewer & CloudKit Trigger (No WebKit Rendering) |
+| **tvOS** | **tvOS 27.0+** | ✅ | Full Sandbox Engine & Native View Presentation |
 
 - **Swift Language**: Swift 6.0+ with Strict Concurrency (`-swift-version 6`, `.enableUpcomingFeature("StrictConcurrency")`).
 - **Dependencies**: **Zero 3rd-party dependencies**. Built exclusively on Apple Native Frameworks (`WebKit`, `CloudKit`, `SwiftUI`, `Combine`, `CryptoKit`, `Foundation`).
