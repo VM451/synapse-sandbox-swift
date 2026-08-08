@@ -102,6 +102,7 @@ All documentation is modularized in the **[`docs/`](docs/)** directory following
 * **[Security Model & Zero-Trust Perimeter](docs/architecture/security-model.md)** — Process sandboxing, CSP builder, and memory watchdog.
 
 ### 🛠 How-To Guides
+* **[Agent Integration Guide](docs/guides/agent-integration.md)** — Standard OpenAPI/JSON schema tools for `SynapseAgent` & Foundation Models.
 * **[SwiftUI Integration Guide](docs/guides/swiftui-integration.md)** — Declarative views, controller bindings, and custom layouts.
 * **[AI Agent & Local LLM Guide](docs/guides/ai-agent-llm-integration.md)** — Connecting Apple Intelligence, MLX, and Foundation Models.
 * **[Native Tool Calling Protocol](docs/guides/tool-calling-rpc.md)** — Bi-directional Swift ↔ JavaScript tool invocation.
